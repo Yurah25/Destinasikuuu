@@ -205,7 +205,7 @@
             <div class="footer-team">
                 <h3>Tim Pengembang</h3>
                 <ul>
-                    <li>Zahrotul Aida</li>
+                    <li>Zahratul Askia</li>
                     <li>Ian Julian Sutrisno</li>
                     <li>Yusuf Rafli Ahmad</li>
                 </ul>
