@@ -6,6 +6,7 @@ use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::view('/about', 'about')->name('about');
 Route::get('/explore', [ExploreController::class, 'index'])->name('explore');
 
 // Route Login & Logout
