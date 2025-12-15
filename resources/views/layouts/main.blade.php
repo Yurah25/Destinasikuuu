@@ -146,8 +146,8 @@
             Destinasiku
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#explore">Explore <i class="fas fa-chevron-down"></i></a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('explore') }}">Explore</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Contact</a></li>
         </ul>

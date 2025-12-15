@@ -2,11 +2,11 @@
 
 @section('styles')
 <style>
-    /* --- HERO SECTION (100vh & Slider) --- */
     .hero {
         position: relative;
-        height: 100vh; /* Full layar */
-        height: 100dvh; /* Support mobile modern */
+        top: 0;
+        height: 100vh;
+        height: 100dvh; 
         width: 100%;
         overflow: hidden;
         display: flex;
