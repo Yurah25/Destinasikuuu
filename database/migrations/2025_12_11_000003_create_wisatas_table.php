@@ -9,17 +9,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('wisatas', function (Blueprint $table) {
-            // Sesuai ERD: PK id_wisata
             $table->id('id_wisata');
-            
-            // Foreign Keys (Menghubungkan ke tabel user dan kategori)
+        
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_kategori');
-            
-            // Kolom Data Wisata
+        
             $table->string('nama_wisata');
             $table->text('deskripsi');
-            $table->decimal('harga', 10, 2); // Tipe decimal untuk harga
+            $table->decimal('harga', 10, 2);
             $table->string('instagram')->nullable();
             $table->string('notelp')->nullable();
             $table->timestamps();

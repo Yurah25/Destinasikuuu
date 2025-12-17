@@ -2,7 +2,6 @@
 
 @section('styles')
     <style>
-        /* --- HERO SECTION --- */
         .hero-about {
             position: relative;
             height: 60vh;
@@ -23,7 +22,6 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
-            /* Overlay */
         }
 
         .hero-about-content {
@@ -44,17 +42,15 @@
             letter-spacing: 1px;
         }
 
-        /* Fade Effect at Bottom */
         .hero-bottom-fade {
             position: absolute;
             bottom: 0;
             left: 0;
-            w: 100%;
+            width: 100%;
             height: 100px;
             background: linear-gradient(to top, var(--primary-beige), transparent);
         }
 
-        /* --- WELCOME SECTION --- */
         .welcome-section {
             padding: 60px 10%;
             text-align: center;
@@ -84,7 +80,6 @@
             margin: 0 auto;
         }
 
-        /* --- LATAR BELAKANG SECTION --- */
         .background-section {
             padding: 60px 10%;
             background-color: var(--primary-beige);
@@ -113,7 +108,6 @@
             color: #e0e0e0;
         }
 
-        /* --- TUJUAN KAMI SECTION --- */
         .goals-section {
             padding: 60px 10%;
             background-color: var(--primary-beige);
@@ -158,7 +152,7 @@
             line-height: 1.6;
         }
 
-        /* Responsiveness */
+
         @media (max-width: 768px) {
             .goals-grid {
                 grid-template-columns: 1fr;
@@ -173,7 +167,6 @@
 
 @section('content')
 
-    <!-- Hero Section -->
     <header class="hero-about">
         <div class="hero-about-content">
             <h1>ABOUT US</h1>
@@ -182,7 +175,7 @@
         <div class="hero-bottom-fade"></div>
     </header>
 
-    <!-- Welcome Section -->
+
     <section class="welcome-section">
         <h2>Selamat Datang di DestinasiKu</h2>
         <div class="divider"></div>
@@ -194,7 +187,7 @@
         </p>
     </section>
 
-    <!-- Latar Belakang Section -->
+
     <section class="background-section">
         <div class="bg-card">
             <h2>Latar Belakang</h2>
@@ -209,7 +202,6 @@
         </div>
     </section>
 
-    <!-- Tujuan Kami Section -->
     <section class="goals-section">
         <div class="goals-title-container">
             <h2>Tujuan Kami</h2>

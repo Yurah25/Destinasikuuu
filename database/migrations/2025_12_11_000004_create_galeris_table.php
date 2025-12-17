@@ -11,10 +11,9 @@ return new class extends Migration
         Schema::create('galeris', function (Blueprint $table) {
             $table->id('id_galeri');
             $table->unsignedBigInteger('id_wisata');
-            $table->string('filename'); // Nama file gambar
+            $table->string('filename');
             $table->timestamps();
 
-            // Aturan Relasi
             $table->foreign('id_wisata')->references('id_wisata')->on('wisatas')->onDelete('cascade');
         });
     }

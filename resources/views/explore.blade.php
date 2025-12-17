@@ -1,223 +1,244 @@
 @extends('layouts.main')
 
-@section('content')
+@section('styles')
 <style>
-    
-   
-    .explore-header {
-        text-align: center;
-        padding: 40px 20px;
-        background: linear-gradient(to bottom, #fffef1, #f0f5e9);
+    .explore-container {
+        padding: 40px 8%;
+        min-height: 80vh;
+        background-color: var(--primary-beige); /* Pastikan background halaman cream */
     }
 
-    .explore-header h1 {
-        font-size: clamp(24px, 4vw, 36px);
-        color: #123714;
-        margin-bottom: 25px;
-        font-weight: 700;
-    }
-
-    .search-container {
+    /* --- FILTER BUTTONS (DIPERBAIKI) --- */
+    .filter-section {
         display: flex;
         justify-content: center;
-        gap: 10px;
-        max-width: 800px;
-        margin: 0 auto;
+        gap: 15px;
+        margin-bottom: 50px;
         flex-wrap: wrap;
     }
 
-    .search-input {
-        flex: 1; 
-        min-width: 200px;
-        padding: 12px 20px;
-        border-radius: 50px;
-        border: 2px solid #5A6C50;
-        outline: none;
-        font-size: 16px;
-        background-color: white;
-    }
-
-    .filter-select {
-        padding: 12px 20px;
-        border-radius: 50px;
-        border: 2px solid #5A6C50;
-        background-color: white;
-        color: #123714;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .btn-search {
-        padding: 12px 30px;
-        border-radius: 50px;
-        background-color: #123714;
-        color: white;
-        border: none;
+    .filter-btn {
+        padding: 12px 35px;
+        border-radius: 30px;
         font-weight: 600;
+        font-size: 0.95rem;
+        /* Menggunakan warna PUTIH agar tidak nyatu dengan background cream */
+        background-color: #ffffff; 
+        color: #555;
+        border: 2px solid transparent; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Efek timbul */
         cursor: pointer;
-        transition: 0.3s;
+        transition: all 0.3s ease;
+        text-decoration: none; /* Hapus garis bawah link */
+        display: inline-block;
     }
 
-    .btn-search:hover {
-        background-color: #0A400C;
+    .filter-btn:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        color: #333;
     }
 
-    
-    .explore-content {
-        padding: 0 clamp(20px, 5vw, 81px); 
-        min-height: 60vh;
-        margin-bottom: 80px;
+    /* Tombol Aktif (Biru Navy Gelap) */
+    .filter-btn.active {
+        background-color: #1A3052; 
+        color: white;
+        box-shadow: 0 5px 15px rgba(26, 48, 82, 0.3);
     }
 
+    /* --- CARD GRID --- */
     .card-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 40px;
-        margin-top: 50px;
-        justify-content: center;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+    }
+
+    /* Link pembungkus card */
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        height: 100%;
     }
 
     .card {
-        width: 100%;
-        max-width: 361px;
-        margin: 0 auto;
-        padding: 24px 30px 40px 30px;
-        border-radius: 23.41px;
-        border: 1px solid #0A400C;
-        background: linear-gradient(to bottom, #D9E9CF 80%, #96A18F 100%);
-        transition: transform 0.3s ease;
+        background-color: var(--primary-dark); /* Biru Navy dari variable layout */
+        /* Atau hardcode: background-color: #1A3052; */
+        border-radius: 20px;
+        overflow: hidden;
+        color: white;
         display: flex;
         flex-direction: column;
+        transition: transform 0.3s ease;
+        position: relative;
+        height: 100%;
     }
 
     .card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    .card img {
+    /* --- IMAGE SECTION --- */
+    .card-img-container {
+        height: 200px;
         width: 100%;
-        aspect-ratio: 1;
+        position: relative;
+        background-color: #ddd;
+    }
+
+    .card-img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border-radius: 12px;
-        box-shadow: 1px 2px rgba(0,0,0,0.2);
-        margin-bottom: 20px;
-    }
-
-    .isi_card {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-
-    .isi_card h3 {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 5px;
-        color: #000;
     }
 
     .category-badge {
-        display: inline-block;
-        font-size: 12px;
-        color: #123714;
-        font-weight: 600;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .isi_card p {
-        font-size: 14px;
-        line-height: 1.5;
-        margin-bottom: 20px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: white;
         color: #333;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* --- CONTENT SECTION --- */
+    .card-body {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
         flex-grow: 1;
-        overflow: hidden;
     }
 
-    .detail {
-        display: inline-block;
-        background-color: #FFF;
-        color: #000;
-        text-decoration: none;
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-size: 14px;
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    .info-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: #e0e0e0;
+    }
+
+    .info-row i {
+        margin-top: 3px;
+        width: 15px;
+        text-align: center;
+    }
+
+    .info-label {
         font-weight: 600;
-        border: 1px solid #5A6C50;
-        align-self: flex-start;
-        box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-        transition: 0.3s;
+        color: white;
+        min-width: 70px;
     }
 
-    .detail:hover {
-        background-color: #f0f0f0;
-    }
-
-    .pagination-wrapper {
+    .pagination-container {
         margin-top: 50px;
         display: flex;
         justify-content: center;
     }
-    
-    @media (max-width: 600px) {
-        .search-container {
-            flex-direction: column;
-        }
-        .btn-search {
-            width: 100%;
-        }
-    }
 </style>
+@endsection
 
-<div class="explore-header">
-    <h1>Temukan Destinasi Impianmu</h1>
+@section('content')
+<div class="explore-container">
     
-    <form action="{{ route('explore') }}" method="GET" class="search-container">
-        <input type="text" name="search" class="search-input" placeholder="Cari tempat wisata..." value="{{ request('search') }}">
-        
-        <select name="kategori" class="filter-select">
-            <option value="">Semua Kategori</option>
-            @foreach($kategoris as $kategori)
-                <option value="{{ $kategori->id_kategori }}" {{ request('kategori') == $kategori->id_kategori ? 'selected' : '' }}>
-                    {{ $kategori->nama_kategori }}
-                </option>
-            @endforeach
-        </select>
+    <div class="filter-section">
+        <a href="{{ route('explore') }}" 
+           class="filter-btn {{ !request('kategori') ? 'active' : '' }}">
+           All
+        </a>
 
-        <button type="submit" class="btn-search">Cari</button>
-    </form>
-</div>
+        @foreach($kategoris as $kategori)
+            <a href="{{ route('explore', ['kategori' => $kategori->id_kategori]) }}" 
+               class="filter-btn {{ request('kategori') == $kategori->id_kategori ? 'active' : '' }}">
+               {{ $kategori->nama_kategori }}
+            </a>
+        @endforeach
+    </div>
 
-<div class="explore-content">
     <div class="card-grid">
         @forelse($wisatas as $wisata)
-            <div class="card">
-                @if($wisata->galeris->count() > 0)
-                    <img src="{{ asset('storage/' . $wisata->galeris->first()->filename) }}" alt="{{ $wisata->nama_wisata }}">
-                @else
-                    <img src="https://via.placeholder.com/300?text=No+Image" alt="No Image">
-                @endif
+            <a href="{{ route('explore.show', $wisata->id_wisata) }}" class="card-link">
+                <div class="card">
+                    <div class="card-img-container">
+                        @php
+                            $galeri = $wisata->galeris->first();
+                            $imgSrc = $galeri ? asset('storage/' . $galeri->filename) : 'https://placehold.co/600x400?text=No+Image';
+                        @endphp
+                        <img src="{{ $imgSrc }}" 
+                             alt="{{ $wisata->nama_wisata }}" 
+                             class="card-img"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Image+Not+Found';">
+                        
+                        <span class="category-badge">
+                            {{ $wisata->kategori->nama_kategori ?? 'Umum' }}
+                        </span>
+                    </div>
 
-                <div class="isi_card">
-                    <h3>{{ $wisata->nama_wisata }}</h3>
-                    <span class="category-badge">{{ $wisata->kategori->nama_kategori }}</span>
-                    <p>{{ Str::limit($wisata->deskripsi, 100) }}</p> <p style="font-weight: bold; color: #123714;">Rp {{ number_format($wisata->harga, 0, ',', '.') }}</p>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ $wisata->nama_wisata }}</h3>
 
-                    <a href="#" class="detail">Lihat Detail</a>
-                </div>
-            </div>
-        @empty
-            <div style="grid-column: 1 / -1; text-align: center; padding: 50px;">
-                <h3>Maaf, destinasi tidak ditemukan :(</h3>
-                <p>Coba kata kunci lain atau reset filter.</p>
+                        <div class="info-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                <span class="info-label">Lokasi</span> : 
+                                {{ $wisata->lokasi ?? 'Kec. Baturraden, Banyumas' }}
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>
+                                <span class="info-label">Harga Tiket</span> : 
+                                Rp{{ number_format($wisata->harga, 0, ',', '.') }}
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="far fa-clock"></i>
+                            <span>
+                                <span class="info-label">Jam Buka</span> : 
+                                08.00 - 17.00 WIB
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span>
+                                <span class="info-label">Deskripsi</span> : 
+                                {{ Str::limit($wisata->deskripsi, 80, '...') }}
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fas fa-city"></i>
+                            <span>
+                                <span class="info-label">Fasilitas</span> : 
+                                Parkir, Warung, Toilet, Mushola
+                            </span>
+                        </div>
+                    </div> </div> </a> @empty
+            <div style="grid-column: 1/-1; text-align: center; color: #666; margin-top: 50px;">
+                <h3>Belum ada data wisata untuk kategori ini.</h3>
             </div>
         @endforelse
     </div>
 
-    <div class="pagination-wrapper">
-        {{ $wisatas->withQueryString()->links() }}
+    <div class="pagination-container">
+        {{ $wisatas->appends(request()->query())->links() }}
     </div>
 </div>
-
 @endsection

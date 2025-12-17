@@ -5,8 +5,8 @@
     .hero {
         position: relative;
         top: 0;
-        height: 100vh;
-        height: 100dvh; 
+        height: 80vh;
+        height: 80dvh; 
         width: 100%;
         overflow: hidden;
         display: flex;
@@ -224,7 +224,6 @@
     </div>
 
     <div class="hero-content">
-        <h3>Selamat datang di website resmi "Destinasiku"</h3>
         <h1>YUK EKSPLORASI BERSAMA!</h1>
         <button class="btn-hero" onclick="document.getElementById('explore').scrollIntoView()">SELENGKAPNYA</button>
     </div>
