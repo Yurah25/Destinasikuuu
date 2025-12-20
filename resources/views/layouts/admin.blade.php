@@ -119,11 +119,10 @@
         .footer-grid h4 { border-bottom: 1px solid #aaa; padding-bottom: 5px; margin-bottom: 10px; display: inline-block;}
         .footer-copyright { text-align: center; font-size: 0.8rem; color: #ccc; border-top: 1px solid #444; padding-top: 20px; }
         
-        /* Table Styles (Global) */
         .admin-table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0 10px; /* Jarak antar baris */
+            border-spacing: 0 10px;
         }
         .admin-table thead th {
             background-color: #1A3052;
@@ -137,7 +136,7 @@
         .admin-table thead th:last-child { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
 
         .admin-table tbody tr {
-            background-color: #e0e0e0; /* Warna baris abu */
+            background-color: #e0e0e0; 
         }
         
         .admin-table td {
@@ -155,7 +154,6 @@
             display: flex; align-items: center;
         }
 
-        /* Utilities */
         .breadcrumb {
             display: flex; align-items: center; gap: 10px;
             font-size: 1.2rem; font-weight: 700; color: #1A3052;
