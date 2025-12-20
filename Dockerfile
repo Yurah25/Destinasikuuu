@@ -1,18 +1,29 @@
 FROM php:8.2-apache
 
-# Instal ekstensi database pdo_mysql
-RUN docker-php-ext-install pdo pdo_mysql
+# 1. Instal dependensi sistem dan ekstensi PHP
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev \
+    && docker-php-ext-install pdo pdo_mysql zip
 
-# Aktifkan modul rewrite Apache untuk Laravel
-RUN a2enmod rewrite
+# 2. Instal Composer secara otomatis
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Salin semua file ke dalam folder server
+# 3. Salin semua file proyek
 COPY . /var/www/html
 
-# Setel folder publik Laravel sebagai folder utama web
-RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+# 4. Jalankan Composer Install untuk membuat folder 'vendor'
+# (Ini langkah yang memperbaiki error autoload.php Anda)
+RUN composer install --no-dev --optimize-autoloader
 
-# Berikan izin tulis untuk folder storage dan cache
+# 5. Atur folder publik Laravel
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
+# 6. Berikan izin akses folder
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN a2enmod rewrite
 
 EXPOSE 80
