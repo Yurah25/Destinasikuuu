@@ -35,4 +35,4 @@ Route::middleware(['auth'])->group(function () {
     
 Route::delete('/dashboard/galeri/{id}', [DashboardController::class, 'deleteGaleri'])->name('galeri.destroy');
 
-    });
+});
