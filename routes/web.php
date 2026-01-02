@@ -13,9 +13,6 @@ Route::get('/explore', [ExploreController::class, 'index'])->name('explore');
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
 Route::get('/explore/{id}', [ExploreController::class, 'show'])->name('explore.show');
 Route::view('/contact', 'contact')->name('contact');
 
