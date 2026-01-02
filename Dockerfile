@@ -1,6 +1,6 @@
 FROM php:8.2-cli
 
-# 1. Tambahkan libicu-dev (untuk intl) dan libxml2-dev (untuk dependensi lain)
+# 1. Tambahkan libicu-dev (untuk intl) dan libxml2-dev
 RUN apt-get update && apt-get install -y \
     libzip-dev unzip git libpng-dev libxml2-dev libicu-dev \
     && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
@@ -14,7 +14,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 COPY . .
 
-# 3. Instal library dan Build Aset
+# 3. Instal library dan Build Aset (Vite)
 RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
