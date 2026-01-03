@@ -254,36 +254,24 @@
     <p class="section-subtitle">Mari Lihat Keragaman Banyumas dan Sekitarnya di bawah ini!</p>
     
     <div class="card-grid">
+    @foreach($wisatas as $wisata)
         <div class="card-item">
-            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b271?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="Pantai">
+            @php
+                $galeri = $wisata->galeris->first();
+                $imgSrc = $galeri ? asset('storage/' . $galeri->filename) : 'https://placehold.co/600x400?text=No+Image';
+            @endphp
+            
+            <img src="{{ $imgSrc }}" class="card-img" alt="{{ $wisata->nama_wisata }}">
+            
             <div class="card-body">
-                <h3>Pantai Menganti</h3>
-                <span class="price">HTM: Rp20.000,00</span>
-                <p>Pantai Menganti merupakan sebuah pantai yang berlokasi di Desa Karangduwur, Kecamatan Ayah, Kabupaten Kebumen. Jawa Tengah.</p>
-                <a href="#" class="btn-detail">Informasi Lebih Lanjut</a>
+                <h3>{{ $wisata->nama_wisata }}</h3>
+                <span class="price">HTM: Rp{{ number_format($wisata->harga, 0, ',', '.') }}</span>
+                <p>{{ Str::limit($wisata->deskripsi, 100, '...') }}</p>
+                <a href="{{ route('explore.show', $wisata->id_wisata) }}" class="btn-detail">Informasi Lebih Lanjut</a>
             </div>
         </div>
-
-        <div class="card-item">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="Gunung">
-            <div class="card-body">
-                <h3>Gunung Slamet</h3>
-                <span class="price">HTM: Rp25.000,00</span>
-                <p>Gunung Slamet adalah sebuah gunung berapi kerucut tipe A yang berada di Jawa Tengah, Indonesia, dan merupakan gunung tertinggi.</p>
-                <a href="#" class="btn-detail">Informasi Lebih Lanjut</a>
-            </div>
-        </div>
-
-        <div class="card-item">
-            <img src="https://images.unsplash.com/photo-1580495326876-0c68102d9061?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="Museum">
-            <div class="card-body">
-                <h3>Museum Jenderal Soedirman</h3>
-                <span class="price">HTM: Rp5.000,00</span>
-                <p>Museum Panglima Besar Jenderal Soedirman atau yang biasa disebut Museum Pangsar Soedirman terletak di pinggiran kota Purwokerto.</p>
-                <a href="#" class="btn-detail">Informasi Lebih Lanjut</a>
-            </div>
-        </div>
-    </div>
+    @endforeach
+</div>
 </section>
 
 <section class="why-section section-padding">
