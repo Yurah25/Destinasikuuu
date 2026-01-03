@@ -250,48 +250,24 @@
                     </div>
 
                     <div class="card-body">
-                        <h3 class="card-title">{{ $wisata->nama_wisata }}</h3>
+    <h3 class="card-title">{{ $wisata->nama_wisata }}</h3>
 
-                        <div class="info-row">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>
-                                <span class="info-label">Lokasi</span> : 
-                                {{ $wisata->lokasi ?? 'Kec. Baturraden, Banyumas' }}
-                            </span>
-                        </div>
+    <div class="info-row">
+        <i class="fas fa-ticket-alt"></i>
+        <span>
+            <span class="info-label">Harga Tiket</span> : 
+            Rp{{ number_format($wisata->harga, 0, ',', '.') }}
+        </span>
+    </div>
 
-                        <div class="info-row">
-                            <i class="fas fa-ticket-alt"></i>
-                            <span>
-                                <span class="info-label">Harga Tiket</span> : 
-                                Rp{{ number_format($wisata->harga, 0, ',', '.') }}
-                            </span>
-                        </div>
-
-                        <div class="info-row">
-                            <i class="far fa-clock"></i>
-                            <span>
-                                <span class="info-label">Jam Buka</span> : 
-                                08.00 - 17.00 WIB
-                            </span>
-                        </div>
-
-                        <div class="info-row">
-                            <i class="fas fa-pencil-alt"></i>
-                            <span>
-                                <span class="info-label">Deskripsi</span> : 
-                                {!! nl2br(e(Str::limit($wisata->deskripsi, 80, '...'))) !!}
-                            </span>
-                        </div>
-
-                        <div class="info-row">
-                            <i class="fas fa-city"></i>
-                            <span>
-                                <span class="info-label">Fasilitas</span> : 
-                                Parkir, Warung, Toilet, Mushola
-                            </span>
-                        </div>
-                    </div> </div> </a> @empty
+    <div class="info-row">
+        <i class="fas fa-pencil-alt"></i>
+        <span>
+            <span class="info-label">Deskripsi</span> : 
+            {{ Str::limit($wisata->deskripsi, 100, '...') }}
+        </span>
+    </div>
+</div> </div> </a> @empty
             <div style="grid-column: 1/-1; text-align: center; color: #666; margin-top: 50px;">
                 <h3>Belum ada data wisata untuk kategori ini.</h3>
             </div>

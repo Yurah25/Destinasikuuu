@@ -272,24 +272,24 @@
         <div class="contact-column">
             <i class="fab fa-instagram contact-icon-circle"></i>
 
-            <a href="https://instagram.com/zahratul.askia" target="_blank" class="contact-link">
+            <a href="https://www.instagram.com/iamzahhh?igsh=MWk4ZTRhbGJtMWp6Ng==" target="_blank" class="contact-link">
                 <div class="info-card">
                     <span class="info-name">Zahratul Askia</span>
-                    <span class="info-detail"><i class="fab fa-instagram"></i> @zahratul.askia</span>
+                    <span class="info-detail"><i class="fab fa-instagram"></i> @iamzahhh</span>
                 </div>
             </a>
 
-            <a href="https://instagram.com/ianjulian" target="_blank" class="contact-link">
+            <a href="https://www.instagram.com/gianjul_" target="_blank" class="contact-link">
                 <div class="info-card">
                     <span class="info-name">Ian Julian Sutrisno</span>
-                    <span class="info-detail"><i class="fab fa-instagram"></i> @ianjulian</span>
+                    <span class="info-detail"><i class="fab fa-instagram"></i> @gianjul_</span>
                 </div>
             </a>
 
-            <a href="https://instagram.com/_yurah_25_" target="_blank" class="contact-link">
+            <a href="https://www.instagram.com/_yusuf_r_a?igsh=MWRzNG1iMnBjdTB0Zw==" target="_blank" class="contact-link">
                 <div class="info-card">
                     <span class="info-name">Yusuf Rafli Ahmad</span>
-                    <span class="info-detail"><i class="fab fa-instagram"></i> @_yurah_25_</span>
+                    <span class="info-detail"><i class="fab fa-instagram"></i> @_yurah_25</span>
                 </div>
             </a>
         </div>

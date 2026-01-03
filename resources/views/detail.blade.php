@@ -184,51 +184,37 @@
         </div>
 
         <div class="info-container">
-            <h1 class="wisata-title">{{ $wisata->nama_wisata }}</h1>
+    <h1 class="wisata-title">{{ $wisata->nama_wisata }}</h1>
 
-            <div class="info-section">
-                <h3>Deskripsi:</h3>
-                <p class="info-text">{!! nl2br(e($wisata->deskripsi)) !!}</p>
-            </div>
+    <div class="info-section">
+        <h3>Deskripsi:</h3>
+        <p class="info-text">{!! nl2br(e($wisata->deskripsi)) !!}</p>
+    </div>
 
-            <div class="info-section">
-                <h3>Lokasi:</h3>
-                <p class="info-text">Desa Siwarak, Karangreja, Purbalingga, Jawa Tengah</p>
-            </div>
+    <div class="info-section">
+        <h3>Harga Tiket:</h3>
+        <p class="info-text">Rp{{ number_format($wisata->harga, 0, ',', '.') }} / orang</p>
+    </div>
 
-            <div class="info-section">
-                <h3>Jam Buka:</h3>
-                <p class="info-text">Setiap hari 07.00 – 17.00 WIB</p>
-            </div>
+    <div class="action-buttons">
+        @if($wisata->notelp)
+            @php
+                $noHp = $wisata->notelp;
+                if(Str::startsWith($noHp, '0')){ $noHp = '62' . substr($noHp, 1); }
+            @endphp
+            <a href="https://wa.me/{{ $noHp }}" target="_blank" class="btn-social btn-wa">
+                <i class="fab fa-whatsapp"></i> No Whatsapp/Hp
+            </a>
+        @endif
 
-            <div class="info-section">
-                <h3>Harga Tiket:</h3>
-                <p class="info-text">Rp{{ number_format($wisata->harga, 0, ',', '.') }} / orang</p>
-            </div>
-
-            <div class="info-section">
-                <h3>Fasilitas:</h3>
-                <p class="info-text">Parkir luas • Mushola • Toilet • Warung • Gazebo • Spot foto</p>
-            </div>
-
-            <div class="action-buttons">
-                @if($wisata->notelp)
-                    @php
-                        $noHp = $wisata->notelp;
-                        if(Str::startsWith($noHp, '0')){ $noHp = '62' . substr($noHp, 1); }
-                    @endphp
-                    <a href="https://wa.me/{{ $noHp }}" target="_blank" class="btn-social btn-wa">
-                        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Hubungi via WA
-                    </a>
-                @endif
-
-                @if($wisata->instagram)
-                    @php $usernameIg = str_replace('@', '', $wisata->instagram); @endphp
-                    <a href="https://instagram.com/{{ $usernameIg }}" target="_blank" class="btn-social btn-ig">
-                        <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Instagram
-                    </a>
-                @endif
-            </div>
+        @if($wisata->instagram)
+            @php $usernameIg = str_replace('@', '', $wisata->instagram); @endphp
+            <a href="https://instagram.com/{{ $usernameIg }}" target="_blank" class="btn-social btn-ig">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        @endif
+    </div>
+</div>
         </div>
     </div>
 </div>
