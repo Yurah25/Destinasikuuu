@@ -173,6 +173,28 @@
         .search-box button {
             background: #1A3052; color: white; border: none; padding: 0 15px; cursor: pointer;
         }
+        /* Mengecilkan ukuran navigasi halaman (pagination) */
+.pagination {
+    display: flex;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li a, .pagination li span {
+    padding: 5px 10px; /* Ukuran padding diperkecil */
+    font-size: 12px;    /* Ukuran teks diperkecil */
+    border: 1px solid #1A3052;
+    border-radius: 4px;
+    color: #1A3052;
+    text-decoration: none;
+    background: white;
+}
+
+.pagination li.active span {
+    background: #1A3052;
+    color: white;
+}
     </style>
 </head>
 <body>

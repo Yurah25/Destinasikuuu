@@ -59,5 +59,7 @@
     </tbody>
 </table>
 
-{{ $wisatas->links() }}
+<div style="margin-top: 20px; display: flex; justify-content: center;">
+    {{ $wisatas->links('pagination::bootstrap-4') }}
+</div>
 @endsection
