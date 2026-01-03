@@ -145,12 +145,7 @@
     }
 
     /* Mengecilkan container pagination secara keseluruhan */
-.pagination-container .pagination {
-    transform: scale(0.85); /* Mengecilkan seluruh komponen sebanyak 15% */
-    display: flex;
-    gap: 5px;
-}
-      /* Container untuk Pagination dan Info Halaman */
+
 .pagination-wrapper {
     margin-top: 30px;
     display: flex;
@@ -213,19 +208,6 @@
         border-color: #eee;
         cursor: not-allowed;
     }
-
-/* Mengecilkan ukuran tombol dan panah */
-.pagination-container .page-link {
-    padding: 8px 12px; /* Ukuran padding lebih kecil */
-    font-size: 0.85rem;  /* Font angka/teks lebih kecil */
-    border-radius: 8px !important;
-}
-
-/* Jika panah menggunakan ikon SVG (default Tailwind/Bootstrap) */
-.pagination-container svg {
-    width: 18px !important; /* Ukuran panah SVG lebih kecil */
-    height: 18px !important;
-}
 
     
 </style>
