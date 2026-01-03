@@ -298,8 +298,15 @@
         @endforelse
     </div>
 
-    <div class="pagination-container">
-        {{ $wisatas->appends(request()->query())->links() }}
+    <div class="pagination-wrapper">
+    <div class="pagination-info">
+        Menampilkan halaman <b>{{ $wisatas->currentPage() }}</b> dari <b>{{ $wisatas->lastPage() }}</b> 
+        (Total: {{ $wisatas->total() }} wisata)
     </div>
+
+    <div class="pagination-container">
+        {{ $wisatas->appends(request()->query())->links('pagination::bootstrap-4') }}
+    </div>
+</div>
 </div>
 @endsection
