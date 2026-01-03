@@ -280,7 +280,7 @@
                             <i class="fas fa-pencil-alt"></i>
                             <span>
                                 <span class="info-label">Deskripsi</span> : 
-                                {{ Str::limit($wisata->deskripsi, 80, '...') }}
+                                {!! nl2br(e(Str::limit($wisata->deskripsi, 80, '...'))) !!}
                             </span>
                         </div>
 

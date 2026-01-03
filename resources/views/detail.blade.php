@@ -188,7 +188,7 @@
 
             <div class="info-section">
                 <h3>Deskripsi:</h3>
-                <p class="info-text">{{ $wisata->deskripsi }}</p>
+                <p class="info-text">{!! nl2br(e($wisata->deskripsi)) !!}</p>
             </div>
 
             <div class="info-section">
