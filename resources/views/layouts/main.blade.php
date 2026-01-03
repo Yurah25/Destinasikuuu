@@ -91,6 +91,69 @@
             transition: 0.3s;
         }
 
+        /* Container untuk Pagination dan Info Halaman */
+.pagination-wrapper {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Teks Informasi Halaman (Page X of Y) */
+.pagination-info {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Styling Baris Angka Pagination */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 5px;
+}
+
+.pagination li a, .pagination li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 35px;
+    height: 35px;
+    padding: 0 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #1A3052;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* State: Hover */
+.pagination li a:hover {
+    background-color: #f0f2f5;
+    border-color: #1A3052;
+    color: #1A3052;
+}
+
+/* State: Halaman Aktif */
+.pagination li.active span {
+    background-color: #1A3052;
+    border-color: #1A3052;
+    color: white;
+    box-shadow: 0 4px 10px rgba(26, 48, 82, 0.2);
+}
+
+/* State: Tombol Mati (Disabled) */
+    .pagination li.disabled span {
+        color: #ccc;
+        background: #fafafa;
+        border-color: #eee;
+        cursor: not-allowed;
+    }
         .nav-links a:hover {
             color: var(--primary-dark);
             font-weight: 700;
