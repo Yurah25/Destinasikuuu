@@ -254,17 +254,17 @@
                 </div>
             </a>
 
-            <a href="https://wa.me/6289535512507" target="_blank" class="contact-link">
+            <a href="https://wa.me/6289695512607" target="_blank" class="contact-link">
                 <div class="info-card">
                     <span class="info-name">Ian Julian Sutrisno</span>
-                    <span class="info-detail"><i class="fas fa-phone-alt"></i> +62 895-3551-2507</span>
+                    <span class="info-detail"><i class="fas fa-phone-alt"></i> +62 896-9551-2607</span>
                 </div>
             </a>
 
-            <a href="https://wa.me/6285102450833" target="_blank" class="contact-link">
+            <a href="https://wa.me/62881024501933" target="_blank" class="contact-link">
                 <div class="info-card">
                     <span class="info-name">Yusuf Rafli Ahmad</span>
-                    <span class="info-detail"><i class="fas fa-phone-alt"></i> +62 851-0245-0833</span>
+                    <span class="info-detail"><i class="fas fa-phone-alt"></i> +62 881-0245-01933</span>
                 </div>
             </a>
         </div>
@@ -289,7 +289,7 @@
             <a href="https://www.instagram.com/_yusuf_r_a?igsh=MWRzNG1iMnBjdTB0Zw==" target="_blank" class="contact-link">
                 <div class="info-card">
                     <span class="info-name">Yusuf Rafli Ahmad</span>
-                    <span class="info-detail"><i class="fab fa-instagram"></i> @_yurah_25</span>
+                    <span class="info-detail"><i class="fab fa-instagram"></i> @_yurah_r_a</span>
                 </div>
             </a>
         </div>
