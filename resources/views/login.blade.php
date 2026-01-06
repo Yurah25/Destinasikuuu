@@ -65,6 +65,17 @@
             justify-content: center;
             position: relative;
         }
+        .demo-box {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e8f0fe;
+    border: 1px dashed #1A3052;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #1A3052;
+    text-align: left;
+}
+.demo-box strong { display: block; margin-bottom: 5px; text-transform: uppercase; }
 
         /* Overlay gelap sedikit biar teks terbaca jika background terang */
         .login-wrapper::before {
@@ -182,6 +193,11 @@
 
                 <button type="submit" class="btn-submit">LOGIN</button>
             </form>
+            <div class="demo-box">
+    <strong><i class="fas fa-info-circle"></i> Demo Akun</strong>
+    Username: <code>Mindes</code> <br>
+    Password: <code>Mindes123</code>
+</div>
         </div>
     </div>
 
